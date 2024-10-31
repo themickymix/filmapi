@@ -8,6 +8,7 @@ const QueryResults = () => {
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [totalresult, setTotalResult] = useState(0);
   const location = useLocation();
 
   const getQueryParams = () => {
@@ -34,6 +35,7 @@ const QueryResults = () => {
           if (data && data.results) {
             setResults(data.results);
             setTotalPages(data.total_pages);
+            setTotalResult(data.total_results);
           } else {
             console.error("No results found.");
           }
@@ -58,7 +60,9 @@ const QueryResults = () => {
         <p className="p-5 pb-5">No results found for '{query}'.</p>
       ) : (
         <>
-          <p className="p-5">Search results for '{query}'</p>
+          <p className="p-5">
+            Found {totalresult} results for "{query}"
+          </p>
           <div className="join mb-4">
             <button
               className="join-item btn"
