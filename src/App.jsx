@@ -7,11 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./component/Footer";
 import QueryResults from "./page/Result";
 import FilmInfo from "./page/FilmInfo";
-
-// Lazy load components
-const Home = lazy(() => import("./page/Home"));
-const Movie = lazy(() => import("./page/Movie"));
-const TV = lazy(() => import("./page/TV"));
+import Home from "./page/Home";
+import Movie from "./page/Movie";
+import TV from "./page/TV";
 
 function App() {
   return (
