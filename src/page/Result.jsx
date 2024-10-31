@@ -65,17 +65,17 @@ const QueryResults = () => {
           </p>
           <div className="join mb-4">
             <button
-              className="join-item btn"
+              className="join-item btn text-white"
               disabled={currentPage === 1}
               onClick={() => handlePageChange(currentPage - 1)}>
-              «
+              « Previous
             </button>
 
             {[...Array(Math.min(totalPages, 5)).keys()].map((_, index) => (
               <button
                 key={index}
                 className={`join-item btn ${
-                  currentPage === index + 1 ? "btn-active" : ""
+                  currentPage === index + 1 ? " bg-white text-black" : ""
                 }`}
                 onClick={() => handlePageChange(index + 1)}>
                 {index + 1}
@@ -83,10 +83,10 @@ const QueryResults = () => {
             ))}
 
             <button
-              className="join-item btn"
+              className="join-item btn text-white"
               disabled={currentPage === totalPages}
               onClick={() => handlePageChange(currentPage + 1)}>
-              »
+             Next »
             </button>
           </div>
 

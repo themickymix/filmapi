@@ -67,7 +67,7 @@ function Movie({ id }) {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-0 gap-3">
           {loading ? (
             // Display a loading spinner or message while loading
-            <p className="text-center">Loading Movies...</p>
+            <span class="loadeds"></span>
           ) : (
             movie.map((movies) => {
               const dates = movies.release_date.split("-")[0];
@@ -78,7 +78,7 @@ function Movie({ id }) {
                   name={movies.title}
                   category={"Movie"}
                   date={dates}
-                  type={'movie'}
+                  type={"movie"}
                   img={img_url + movies.backdrop_path}
                 />
               ); // Return Cards for each movie

@@ -63,11 +63,13 @@ function FilmInfo() {
       <div className="grid md:grid-cols-2 gap-[1rem] pt-[1rem] justify-items-center pl-1 pr-1 md:pl-[20%] md:pr-[20%]">
         <div className="grid justify-items-end md:m-3 w-72 md:w-auto">
           <img
-            className="rounded-lg"
+            className=" rounded-lg"
             src={
-              item
-                ? `https://image.tmdb.org/t/p/original${item.poster_path}`
-                : "https://placehold.co/600x400"
+              item ? (
+                `https://image.tmdb.org/t/p/original${item.poster_path}`
+              ) : (
+                <span class="loaders"></span>
+              )
             }
             alt={item ? item.title || item.name : "Placeholder"}
           />
@@ -95,14 +97,18 @@ function FilmInfo() {
             <div className="flex flex-wrap gap-3">
               {cast.length > 0 ? (
                 cast.slice(0, 6).map((member) => (
-                  <div key={member.id} className="grid grid-row-6 p-2 justify-items-center">
+                  <div
+                    key={member.id}
+                    className="grid grid-row-6 p-2 justify-items-center">
                     <img
                       className="w-20 h-auto rounded-md"
                       src={img_url + member.profile_path}
                       alt=""
                     />{" "}
                     <p className="font-bold text-xs mt-1">{member.name}</p>
-                    <p className="text-gray-400 text-xs ">as {member.character}</p>
+                    <p className="text-gray-400 text-xs ">
+                      as {member.character}
+                    </p>
                   </div>
                 ))
               ) : (
